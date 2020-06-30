@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { AwesomeButtonProgress } from "react-awesome-button";
+// import AwesomeButtonProgress from 'react-awesome-button/src/components/AwesomeButtonProgress';
+import "react-awesome-button/dist/styles.css";
 
 function App() {
+  const [pickupline, setPickupline] = useState(false);
+
+  const newPickupline = (next) => {
+    setTimeout(function(){
+      setPickupline("hello");
+      next()
+    },40);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App-header">
+      774M version of Open AI's GPT-2 Model trained on various pick-up lines.
+      Use at your own risk.
+      <div style={{ top: "43%", position: "absolute" }}>{pickupline}</div>
+      <AwesomeButtonProgress
+        type="primary"
+        size="large"
+        action={(element, next) => newPickupline(next)}
+        style={{
+          position: "absolute",
+          top: "57%",
+          left: "50%",
+          marginTop: "-50px",
+          marginLeft: "-100px",
+        }}
+      >
+        Generate
+      </AwesomeButtonProgress>
+      <div style={{ bottom: 20, position: "absolute" }}>
+        Special thanks to Twitter Users: @ , and @ for the data.
+      </div>
     </div>
   );
 }
