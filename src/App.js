@@ -34,7 +34,7 @@ function App() {
         Generate
       </AwesomeButtonProgress>
       <div style={{ bottom: 20, position: "absolute" }}>
-        Special thanks to Twitter Users: @ , and @ for the data.
+        Special Thanks to Twitter Users: @bestpickuplin3s, @iquoteHOT, @pickuplinebot_, @pickuplineig, & @pickupIines for the data.
       </div>
     </div>
   );
