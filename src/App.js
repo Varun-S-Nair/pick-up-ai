@@ -8,10 +8,17 @@ function App() {
   const [pickupline, setPickupline] = useState(false);
 
   const newPickupline = (next) => {
-    setTimeout(function(){
-      setPickupline("hello");
-      next()
-    },40);
+    setTimeout(function () {
+      fetch("/api/time")
+        .then((res) => {
+          console.log(res);
+          return res.json();
+        })
+        .then((data) => {
+          setPickupline(data.time);
+        });
+      next();
+    }, 40);
   };
 
   return (
@@ -34,7 +41,8 @@ function App() {
         Generate
       </AwesomeButtonProgress>
       <div style={{ bottom: 20, position: "absolute" }}>
-        Special Thanks to Twitter Users: @bestpickuplin3s, @iquoteHOT, @pickuplinebot_, @pickuplineig, & @pickupIines for the data.
+        Special Thanks to Twitter Users: @bestpickuplin3s, @iquoteHOT,
+        @pickuplinebot_, @pickuplineig, & @pickupIines for the data.
       </div>
     </div>
   );
