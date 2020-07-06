@@ -9,10 +9,10 @@ function App() {
 
   const newPickupline = (next) => {
     setTimeout(function () {
-      fetch("/api/time")
+      fetch("/api/line")
         .then((res) => res.json())
         .then((data) => {
-          setPickupline(data);
+          setPickupline(data.output);
         });
       next();
     }, 40);
